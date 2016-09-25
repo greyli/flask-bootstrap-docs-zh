@@ -24,11 +24,11 @@ Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
 ------------
 
 Flask-Bootstrap 可以使用 ``pip`` 从 `PyPI
-<http://pypi.python.org/pypi/Flask-Bootstrap>`_上获取安装。建议使用 `virtualenv <http://www.virtualenv.org/en/latest/>`_--没有特别的原因，只是为了最佳实践。安装很简单。::
+<http://pypi.python.org/pypi/Flask-Bootstrap>`_ 上获取安装。建议使用 `virtualenv <http://www.virtualenv.org/en/latest/>`_ --没有特别的原因，只是为了最佳实践。安装很简单。::
 
    pip install flask-bootstrap
 
-开发用途可以克隆 `官方github仓库 <https://github.com/mbr/flask-bootstrap>`_然后使用：::
+开发用途可以克隆 `官方github仓库 <https://github.com/mbr/flask-bootstrap>`_ 然后使用：:
 
    python setup.py develop
 
