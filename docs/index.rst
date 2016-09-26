@@ -8,16 +8,16 @@ Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
 .. toctree::
    :maxdepth: 3
 
-   基本用法
-   配置
-   宏（macros）
-   表单
+   basic-usage
+   configuration
+   macros
+   forms
    sqlalchemy
    nav
    cdn
    faq
    bootstrap2
-   版本记录
+   changelog
 
 
 安装
