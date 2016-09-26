@@ -24,7 +24,7 @@ Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
 ----
 
 Flask-Bootstrap 可以使用 ``pip`` 从 `PyPI
-<http://pypi.python.org/pypi/Flask-Bootstrap>`_ 上获取安装。建议使用 `virtualenv <http://www.virtualenv.org/en/latest/>`_ --没有特别的原因，只是为了最佳实践。安装很简单::
+<http://pypi.python.org/pypi/Flask-Bootstrap>`_ 上获取安装。建议使用 `virtualenv <http://www.virtualenv.org/en/latest/>`_ ——没有特别的原因，只是为了最佳实践。安装很简单::
 
    pip install flask-bootstrap
 
@@ -40,7 +40,7 @@ Flask-Bootstrap 可以使用 ``pip`` 从 `PyPI
 
 在写这份文档时，最新的Bootstrap版本已经到了Bootstrap 3（现在已经是4了！）。
 一个Flask-Bootstrap分支仍然支持Bootstrap2，具体细节在这里
- :doc:`bootstrap2` 。
+:doc:`bootstrap2` 。
 
 
 版本笔记
