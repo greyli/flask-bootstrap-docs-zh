@@ -45,7 +45,8 @@
 所有你要在子模板里做的事情都是基于块（block）的。一些块（像 ``title`` ， ``navbar`` 或 ``content`` ）
 是“convenience blocks”。严格来说，它们不是必须的，但是被增加用来优化文档结构（？）。
 
-一个非常有用的特性是 `Jinja2的super()<http://jinja.pocoo.org/docs/templates/#super-blocks>`_ 函数。它可以让你修改块，而不是替换它们。
+一个非常有用的特性是 `Jinja2的super()
+<http://jinja.pocoo.org/docs/templates/#super-blocks>`_ 函数。它可以让你修改块，而不是替换它们。
 
 .. _block-names:
 
@@ -94,7 +95,7 @@ metas        head        包含所有头部的 ``<meta>`` 标签。
 静态文件
 ----
 
-路径的末节点（url-endpoint）``bootstrap.static`` 可以让你引用Bootstrap文件，但通常不需要这样。
+路径的末节点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
 
