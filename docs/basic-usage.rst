@@ -99,4 +99,8 @@ metas        head        包含所有头部的 ``<meta>`` 标签。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
 
+<<<<<<< HEAD
 对当前的资源系统的详细描述在 :doc:`cdn` 。
+=======
+对当前的资源系统的详细描述在 :doc:`cdn` 。
+>>>>>>> origin/master
