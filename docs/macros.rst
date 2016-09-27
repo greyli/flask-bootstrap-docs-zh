@@ -1,30 +1,28 @@
-Macros
-======
+宏
+===
 
 .. highlight:: jinja
 
-Flask-Bootstrap comes with macros to make your life easier. These need to be
-imported like in this example::
+Flask-Bootstrap和macros（宏）一起让你的生活更简单。它们需要像下面的例子里这样导入::
 
   {% extends "bootstrap/base.html" %}
   {% import "bootstrap/wtf.html" as wtf %}
 
-This would import the ``wtf.html`` macros with the name-prefix of ``wtf``
-(these are discussed below at :doc:`forms`).
+这会以前缀 ``wtf`` 导入宏 ``wtf.html`` 。
+（这些在 :doc:`forms` 有一些讨论。）。
 
 In addition to the small macros on this page, broad support for other libraries
 is also available; see :doc:`forms` and :doc:`sqlalchemy` for details.
 
 
-Fixes
------
+跨浏览器支持
+-----------
 
-Cross-browser fixes (specifically for Internet Explorer < 9) are usually
-included, but not shipped with Flask-Bootstrap. You can download `html5shiv
-<https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.min.js>`_ and
+跨浏览器支持（特别对Internet Explorer < 9的版本来说）通常是
+必要的，但是Flask-Bootstrap没有附加这个功能。你可以下载 `html5shiv
+<https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.min.js>`_ 和
 `Respond.js <https://raw.githubusercontent.com/scottjehl/Respond/master/dest/
-respond.min.js>`_, put them in your applications static folder and include them
-like in this example::
+respond.min.js>`_ ，把它们放在你程序的静态文件夹，然后像下面的例子那样包含它们 ::
 
   {% import "bootstrap/fixes.html" as fixes %}
   {% block head %}
@@ -32,18 +30,18 @@ like in this example::
     {{fixes.ie8()}}
   {% endblock %}
 
-While the scripts are not included, links to them on CDNs are, so if you do not
-use ``BOOTSTRAP_SERVE_LOCAL``, they will work out of the box. See :doc:`cdn`
-for more details on how CDN-delivery works with Flask-Bootstrap.
+
+当这些脚本文件没有被包含的时候，会使用CDN链接。所以如果你没有使用
+ ``BOOTSTRAP_SERVE_LOCAL`` ，它们会自动生效。具体见 :doc:`cdn`
+这里有关于Flask-Bootstrap如何实现CDN设置的细节。
 
 
 Google Analytics
 ----------------
 
-The `Google Analytics <http://www.google.com/analytics/>`_ API has changed
-fairly quickly recently, currently `analytics.js
-<https://developers.google.com/analytics/devguides/collection/analyticsjs/>`_
-is best supported, using the ``uanalytics(id, options='auto')`` macro::
+`Google Analytics <http://www.google.com/analytics/>`_  的API最近变化的相当快，目前
+`analytics.js <https://developers.google.com/analytics/devguides/collection/analyticsjs/>`_
+是受支持最好的，使用 ``uanalytics(id, options='auto')`` 宏 ::
 
   {% import "bootstrap/google.html" as google %}
 
@@ -52,19 +50,18 @@ is best supported, using the ``uanalytics(id, options='auto')`` macro::
     {{google.uanalytics('U-XXXX-YY')}}
   {% endblock %}
 
-It is possible to pass through options to the ``ga()`` js function call, for
-example to utilize the `User ID <https://developers.google.com/analytics/
-devguides/collection/analyticsjs/user-id>`_ feature::
+可以传入选项给js函数 ``ga()`` 调用, 比如说利用
+`User ID <https://developers.google.com/analytics/
+devguides/collection/analyticsjs/user-id>`_ 特性 ::
 
   {{google.uanalytics('U-XXXX-YY', {'userId': 'myUser'})}}
 
-If you want the analytics account to be configurable from the outside, you can
-use something like this instead::
+如果你想从外部配置Google Analytics的账户，你可以这样 ::
 
   {{google.uanalytics(config['GOOGLE_ANALYTICS_ID'])}}
 
 
-.. note:: Please make sure you at least pseudomize user ids properly.
+.. note:: 请确保你至少pseudomize user ids properly.
 
 The officially deprecated `ga.js
 <https://developers.google.com/analytics/devguides/collection/gajs/>`_ API

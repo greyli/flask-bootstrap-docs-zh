@@ -5,9 +5,9 @@
 
 ## 进展
 * index (100%)
-* Basic usage (50%)
-* Configuration
-* Macros
+* Basic usage (100%)
+* Configuration (100%)
+* Macros (20%)
 * WTFForms support
 * Flask-SQLAlchemy support
 * Flask-Nav support
