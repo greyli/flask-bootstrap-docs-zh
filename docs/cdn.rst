@@ -1,14 +1,12 @@
-CDN support
-===========
+CDN 支持
+========
 
-Flask-Bootstrap supports delivery via CDN or local resources, configurable at
-runtime. Upon initialization, Flask-Bootstrap will store a dictionary on your
-app named ``yourapp.extensions['bootstrap']['cdns']``, which maps names to
-:py:class:`~flask_bootstrap.CDN` instances.
+Flask-Bootstrap 支持CDN和本地两种方式来调用文件，在运行时是可配置的。
+一旦初始化，Flask-Bootstrap会存储一个叫 ``yourapp.extensions['bootstrap']['cdns']`` 的字典到你的app里。
+这个字典会匹配名字到 :py:class:`~flask_bootstrap.CDN` 实例。
 
-You can use :py:func:`~flask_bootstrap.bootstrap_find_resource` in your
-templates as well when using other resources that may be available on CDNs.
-CDNs can be added by adding new entries to the dictionary mention above.
+当使用其他提供CDN的资源，你也可以在你的模板使用 :py:func:`~flask_bootstrap.bootstrap_find_resource` 。
+CDN会通过增加新的条目到上面提到的字典里面的方式被添加。
 
 .. autoclass:: flask_bootstrap.CDN
    :members:

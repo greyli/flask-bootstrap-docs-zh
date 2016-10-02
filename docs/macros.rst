@@ -84,7 +84,7 @@ Utilities
    :param container: 如果设为True，会输出一个完整的     。
                      ``<div class="container">`` 元素，否则只是每条消息被包裹进一个 ``<div>`` 里。
    :param transform: 一个匹配消息类别的字典。查询时对大小写敏感。
-                     case-insensitively. Default maps all Python loglevel默认匹配所有Python loglevel级别的 *names*
+                     默认匹配所有Python loglevel级别的 *names*
                      到Bootdtrap CSS类。
    :param default_category: 如果一个类别在transform里没有匹配，那么它会被直接传入，不作改变。
                             而如果设置了 ``default_category`` ，那么将会被替换为这个值。
@@ -133,7 +133,7 @@ Utilities
 
    渲染一个被表单包裹的按钮/链接。
 
-   :param url: 要提交到的末端点（endpoint）。
+   :param url: 要提交到的端点（endpoint）。
    :param content: 按钮元素的内容。
    :param method: 周围表单的 ``method`` 属性。
    :param class: 按钮元素的 ``class`` 属性。
@@ -141,7 +141,7 @@ Utilities
 
 
 一个方便的小方法，可以用来创建像删除按钮这样的东西，而不用使用 ``GET`` 请求。
-一个例子：
+一个例子 ::
 
   {{form_button(url_for('remove_entry', id=entry_id),
                 icon('remove') + ' Remove entry')}}
