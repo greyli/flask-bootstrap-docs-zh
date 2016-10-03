@@ -1,5 +1,5 @@
-WTFForms support
-================
+WTFForms 支持
+=============a
 
 The ``bootstrap/wtf.html`` template contains macros to help you output forms
 quickly. Flask-WTF_ is not a dependency of Flask-Bootstrap, however, and must be
@@ -25,8 +25,8 @@ intense fine-tuning::
   {{ wtf.quick_form(form) }}
 
 
-Form macro reference
---------------------
+表单宏参考
+----------
 
 .. py:function:: quick_form(form,\
                     action=".",\
