@@ -57,11 +57,11 @@ Flask-WTF_ 不是Flask-Bootstrap的依赖，但是必须被正确的安装。
 
 .. py:function:: form_errors(form, hiddens=True)
 
-   渲染包含表单错误消息的段落。这通常只用来输出隐藏字段表单的错误，因为其他的被附加到表单字段上。
+   渲染包含表单错误消息的段落。这通常只用来输出隐藏字段表单的错误，因为其他的被附加到表单字段上了。
 
    :param form: 应该被渲染错误信息的表单。
    :param hiddens: If 如果设为 ``True`` ，也渲染隐藏字段的错误。
-                   如果设为 ``'only'`` ，*only*渲染这些。
+                   如果设为 ``'only'`` ， *only* 渲染这些。
 
 
 .. py:function:: form_field(field,\

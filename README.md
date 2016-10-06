@@ -7,11 +7,11 @@
 * index (100%)
 * Basic usage (100%)
 * Configuration (100%)
-* Macros (20%)
-* WTFForms support
-* Flask-SQLAlchemy support
-* Flask-Nav support
-* CDN support
+* Macros (100%)
+* WTFForms support (100%)
+* Flask-SQLAlchemy support (100%)
+* Flask-Nav support (100%)
+* CDN support (100%)
 * FAQ
 * Using Bootstrap 2
-* Flask-Bootstrap Changelog
+* Flask-Bootstrap Changelog (100%)
