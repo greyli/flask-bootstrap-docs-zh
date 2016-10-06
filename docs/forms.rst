@@ -1,13 +1,12 @@
 WTFForms 支持
-=============a
+=============
 
-The ``bootstrap/wtf.html`` template contains macros to help you output forms
-quickly. Flask-WTF_ is not a dependency of Flask-Bootstrap, however, and must be
-installed explicitly. The API of Flask-WTF_ has changed quite a bit over the
-last few versions, Flask-Bootstrap is currently developed for Flask-WTF_ version
-0.9.2.
+``bootstrap/wtf.html`` 模板包含了帮助你快速输出表单的宏。
+Flask-WTF_ 不是Flask-Bootstrap的依赖，但是必须被正确的安装。
+在最近的几个版本中， Flask-WTF_ 的API变化很大，Flask-Bootstrap目前为 Flask-WTF_ 的0.9.2版本开发。
 
-The most basic way is using them as an aid to create a form by hand:
+
+最基本的方式是把它们作为手动创建表单的助手。
 
 .. code-block:: jinja
 
@@ -19,8 +18,7 @@ The most basic way is using them as an aid to create a form by hand:
     {{ wtf.form_field(form.field2) }}
   </form>
 
-However, often you just want to get a form done quickly and have no need for
-intense fine-tuning::
+然而，你经常只是想快速生成一个表单，而且不需要过度的微调::
 
   {{ wtf.quick_form(form) }}
 
@@ -39,35 +37,31 @@ intense fine-tuning::
                     button_map={},\
                     id="")
 
-   Outputs Bootstrap-markup for a complete Flask-WTF_ form.
 
-   :param form: The form to output.
-   :param method: ``<form>`` method attribute.
-   :param extra_classes: The classes to add to the ``<form>``.
-   :param role: ``<form>`` role attribute.
-   :param form_type: One of ``basic``, ``inline`` or ``horizontal``. See the
-                     Bootstrap_ docs for details on different form layouts.
-   :param horizontal_columns: When using the horizontal layout, layout forms
-                              like this. Must be a 3-tuple of ``(column-type,
-                              left-column-size, right-colum-size)``.
-   :param enctype: ``<form>`` enctype attribute. If ``None``, will
-                    automatically be set to ``multipart/form-data`` if a
-                    :class:`~wtforms.fields.FileField` is present in the form.
-   :param button_map: A dictionary, mapping button field names to names such as
-                      ``primary``, ``danger`` or ``success``. Buttons not found
-                      in the ``button_map`` will use the ``default`` type of
-                      button.
-   :param id: The ``<form>`` id attribute.
+   为一个完整的 Flask-WTF_ 表单输出Bootstrap-markup。
+
+   :param form: 要输出的表单。
+   :param method: ``<form>`` 的method属性。
+   :param extra_classes: 添加到 ``<form>`` 的类。
+   :param role: ``<form>`` 的role属性.
+   :param form_type: ``basic`` ， ``inline`` 或是 ``horizontal`` 之一。
+                     关于不同表单样式的具体内容，见 Bootstrap_ 文档。
+   :param horizontal_columns: 当使用水平定位的时候，像这样定位表单。必须是一个三元组：
+                               ``(column-type, left-column-size, right-colum-size)``.
+   :param enctype: ``<form>`` 的enctype属性。如果设为 ``None``
+                   而且一个 :class:`~wtforms.fields.FileField` 出现在表单里，
+                   这个值会被自动设置为 ``multipart/form-data`` 。
+   :param button_map: 一个字典，匹配按钮字段名称到  ``primary`` ， ``danger`` 或是 ``success`` 。
+                      在 ``button_map`` 里没有找到的按钮会使用 ``default`` 类型。
+   :param id: ``<form>`` 的id属性。
 
 .. py:function:: form_errors(form, hiddens=True)
 
-   Renders paragraphs containing form error messages. This is usually only used
-   to output hidden field form errors, as others are attached to the form
-   fields.
+   渲染包含表单错误消息的段落。这通常只用来输出隐藏字段表单的错误，因为其他的被附加到表单字段上。
 
-   :param form: Form, who's errors should be rendered.
-   :param hiddens: If ``True``, render errors of hidden fields as well. If
-                   ``'only'``, render *only* these.
+   :param form: 应该被渲染错误信息的表单。
+   :param hiddens: If 如果设为 ``True`` ，也渲染隐藏字段的错误。
+                   如果设为 ``'only'`` ，*only*渲染这些。
 
 
 .. py:function:: form_field(field,\
@@ -75,8 +69,7 @@ intense fine-tuning::
                             horizontal_columns=('lg', 2, 10),\
                             button_map={})
 
-    Renders a single form-field with surrounding elements. Used mainly by
-    ``quick_form``.
+    渲染单个表单字段及周围的元素。主要通过 ``quick_form`` 使用。
 
 .. _Flask-WTF: https://flask-wtf.readthedocs.org/en/latest/
 .. _Bootstrap: http://getbootstrap.com/
