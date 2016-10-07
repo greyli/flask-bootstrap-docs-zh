@@ -1,14 +1,18 @@
-Using Bootstrap 2
-=================
+使用 Bootstrap 2
+================
 
+目前Bootstrap主要的稳定版本是3，它不向后兼容Bootstrap2。除了版本3，Flask-Bootstrap
+继续支持Bootstrap2的最新版本。（尽管你不应该期待新特性，只是修正了漏洞。）
 The current major stable version of Bootstrap is 3, which is backwards
 incompatible with Bootstrap 2. Besides version 3, Flask-Bootstrap is maintained
 for the latest version of Bootstrap 2 (although you should not expect new
 features, only bug fixes).
 
-Installation
-------------
+安装
+-----
 
+通过安装Flask-Bootstrap，你将总是得到最新版本，即Boostrap3。要安装（或是保持）Flask-Bootstrap 2，
+你必须在你的 ``setup.py`` 或 ``requirements.txt`` 里指定版本，类似这样::
 By installing Flask-Bootstrap, you will always get the latest version, which is
 Bootstrap 3. To install (or keep) Flask-Bootstrap 2, you will have to specify
 the version in your ``setup.py`` or ``requirements.txt`` similiar to this::
@@ -16,15 +20,19 @@ the version in your ``setup.py`` or ``requirements.txt`` similiar to this::
     # other stuff in setup.py...
     install_requires=['flask-bootstrap<3', 'another_package']
 
+把Flask-Bootstrap固定为一个明确的版本是个好主意（例如 ``'flask-bootstrap==2.3.2.2'`` ，以此来避免生产环境中的意外）。
 It's not a bad idea to pin to a specific Flask-Bootstrap version (e.g.
 ``'flask-bootstrap==2.3.2.2'`` to avoid surprises in production).
 
-Documentation
--------------
+文档
+-----
 
+在版本3之前，Flask-Bootstrap只有一个README文件来作为文档。你可以在下面找到整个文件。
 Before version 3, Flask-Bootstrap only had a README file as documentation. You
 can find the full file below.
 
+你也可以在 `github <https://github.com>`_ 上查找之前的版本标签。
+要看主要的版本2的代码或样例程序，在这里 `2.3.2.2 <https://github.com/mbr/flask-bootstrap/tree/2.3.2.2>`_ 。
 You can also find previous version tags on `github <https://github.com>`_. To
 have a look at the code or sample app for major version 2, take a look at
 `2.3.2.2 <https://github.com/mbr/flask-bootstrap/tree/2.3.2.2>`_.
@@ -32,6 +40,8 @@ have a look at the code or sample app for major version 2, take a look at
 Flask-Bootstrap
 ^^^^^^^^^^^^^^^
 
+Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
+扩展，这个扩展主要由一个叫“bootstrap”的蓝本（blueprint）组成。它也可以创建链接从一个CDN上引用Bootstrap。
 Flask-Bootstrap packages `Bootstrap
 <http://getbootstrap.com>`_ into an extension that mostly consists
 of a blueprint named 'bootstrap'. It can also create links to serve Bootstrap
@@ -40,6 +50,7 @@ from a CDN.
 Usage
 *****
 
+这儿是一个例子::
 Here is an example::
 
   from flask_bootstrap import Bootstrap
@@ -48,11 +59,15 @@ Here is an example::
 
   Bootstrap(app)
 
+这让一些新的模板可供使用，主要是 ``bootstrap_base.html`` 和 ``bootstrap_responsive.html`` 。
+这些是包含所有bootstrap资源文件和预定义块（你可以在块里放你的内容）的空白页。要修改的核心块是 ``body_content`` ，
+另外查看模板的源码寻找更多可能性。
 This makes some new templates available, mainly ``bootstrap_base.html`` and
 ``bootstrap_responsive.html``. These are blank pages that include all bootstrap
 resources, and have predefined blocks where you can put your content. The core
 block to alter is ``body_content``, otherwise see the source of the template
 for more possiblities.
+
 
 The url-endpoint ``bootstrap.static`` is available for refering to Bootstrap
 resources, but usually, this isn't needed. A bit better is using the

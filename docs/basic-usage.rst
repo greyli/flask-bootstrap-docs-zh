@@ -50,8 +50,8 @@
 
 .. _block-names:
 
-
-~~~~~~~~~~~~~~~~
+可用的块
+~~~~~~~~
 
 ============ =========== =======
 块名         外部块的目的
@@ -65,7 +65,7 @@ body_attribs body        主体标签的属性。
 **title**    head        包含 ``<title>`` 标签的所有内容。
 **styles**   head        包含所有头部的CSS文件 ``<link>`` 标签。
 metas        head        包含所有头部的 ``<meta>`` 标签。
-**navbar**   body        直接放在*content*上面的空块。
+**navbar**   body        直接放在 *content* 上面的空块。
 **content**  body        HTML主体（body）的便利块，把东西放在这里。
 **scripts**  body        包含所有在HTML文件尾部的 ``<script>`` 标签。
 ============ =========== =======
@@ -81,7 +81,7 @@ metas        head        包含所有头部的 ``<meta>`` 标签。
           href="{{url_for('.static', filename='mystyle.css')}}">
     {% endblock %}
 
-* 自定义在Bootstrap的javascript代码*之前*加载的Javascript::
+* 自定义在Bootstrap的javascript代码 *之前* 加载的Javascript::
 
     {% block scripts %}
     <script src="{{url_for('.static', filename='myscripts.js')}}"></script>
@@ -92,11 +92,11 @@ metas        head        包含所有头部的 ``<meta>`` 标签。
 
     {% block html_attribs %} lang="zh"{% endblock %}
 
-静态文件
-----
+静态资源文件
+-----------
 
-路径的末节点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap文件，但通常不需要这样。
+路径的端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
-对当前的资源系统的详细描述在 :doc:`cdn` 。
+对当前的资源文件系统的详细描述在 :doc:`cdn` 。
 

@@ -8,7 +8,7 @@ Flask-Bootstrap和macros（宏）一起让你的生活更简单。它们需要�
   {% extends "bootstrap/base.html" %}
   {% import "bootstrap/wtf.html" as wtf %}
 
- 这会以前缀 ``wtf`` 导入宏 ``wtf.html`` （这些在 :doc:`forms` 有一些讨论）。
+这会以前缀 ``wtf`` 导入宏 ``wtf.html`` （这些在 :doc:`forms` 有一些讨论）。
 
 除了这个页面上的较小的宏，对其他库也广泛支持。具体参见 :doc:`forms` 和 :doc:`sqlalchemy` 。
 

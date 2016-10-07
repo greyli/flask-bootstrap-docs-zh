@@ -1,7 +1,7 @@
 CDN 支持
 ========
 
-Flask-Bootstrap 支持CDN和本地两种方式来调用文件，在运行时是可配置的。
+Flask-Bootstrap 支持CDN和本地两种方式来调用资源文件，在运行时是可配置的。
 一旦初始化，Flask-Bootstrap会存储一个叫 ``yourapp.extensions['bootstrap']['cdns']`` 的字典到你的app里。
 这个字典会匹配名字到 :py:class:`~flask_bootstrap.CDN` 实例。
 

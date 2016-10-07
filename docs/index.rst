@@ -3,7 +3,7 @@ Flask-Bootstrap
 ===============
 
 Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
-扩展，这个扩展主要由一个叫“bootstrap”的蓝本（blueprint）组成。它也可以创建链接从CDN上引用Bootstrap。
+扩展，这个扩展主要由一个叫“bootstrap”的蓝本（blueprint）组成。它也可以创建链接从一个CDN上引用Bootstrap。
 
 .. toctree::
    :maxdepth: 3
