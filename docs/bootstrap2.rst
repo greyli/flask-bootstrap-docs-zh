@@ -47,8 +47,9 @@ Flask-Bootstrap packages `Bootstrap
 of a blueprint named 'bootstrap'. It can also create links to serve Bootstrap
 from a CDN.
 
-Usage
-*****
+
+用法
+****
 
 这儿是一个例子::
 Here is an example::
@@ -69,28 +70,35 @@ block to alter is ``body_content``, otherwise see the source of the template
 for more possiblities.
 
 
+路径端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
+更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 The url-endpoint ``bootstrap.static`` is available for refering to Bootstrap
 resources, but usually, this isn't needed. A bit better is using the
 ``bootstrap_find_resource`` template filter, which will CDN settings into
 account.
 
-Macros
-******
+宏
+****
 
 .. highlight:: jinja
 
+一些可供使用的宏可以让你的生活更加简单。这些需要被导入（我建议创建你自己的“base.html”模板，
+首先扩展bootstrap的基模板，然后在那里包含这个宏）。
 A few macros are available to make your life easier. These need to be imported
 (I recommend create your own "base.html" template that extends one of the
 bootstrap base templates first and including the the macros there).
 
+一个“base.html”的例子::
 An example "base.html"::
 
   {% extends "bootstrap_responsive.html" %}
   {% import "bootstrap_wtf.html" as wtf %}
 
-Forms
-~~~~~
+表单
+~~~~
 
+``bootstrap/wtf.html`` 模板包含了帮助你快速输出表单的宏。
+最基本的方式是把它们作为手动创建表单的助手。
 The ``bootstrap_wtf`` template contains macros to help you output forms
 quickly. The most basic way is using them as an aid to create a form by hand::
 
@@ -106,6 +114,7 @@ quickly. The most basic way is using them as an aid to create a form by hand::
     </div>
   </form>
 
+然而，你经常只是想快速生成一个表单，而且不需要过度的微调::
 However, often you just want to get a form done quickly and have no need for
 intense fine-tuning:
 
@@ -113,13 +122,14 @@ intense fine-tuning:
 
   {{ wtf.quick_form(form) }}
 
-Configuration options
-*********************
+配置选项
+*********
 
+这里有一些模板使用的配置选项:
 There are a few configuration options used by the templates:
 
 ====================================== ======================================================== ===
-Option                                 Default
+选项                                    默认值
 ====================================== ======================================================== ===
 ``BOOTSTRAP_USE_MINIFIED``             ``True``                                                 Whether or not to use the minified versions of the css/js files.
 ``BOOTSTRAP_JQUERY_VERSION``           ``'1'``                                                  This version of jQuery is included in the template via Google CDN. Also honors ``BOOTSTRAP_USE_MINIFIED``. Set this to ``None`` to not include jQuery at all. Note that non-minified Bootstrap resources are sometimes missing on bootstrapcdn, so it is best not to use it without turning on ``BOOTSTRAP_USE_MINIFIED``.
@@ -134,14 +144,14 @@ Option                                 Default
 
 .. _FontAwesome: http://fortawesome.github.com/Font-Awesome/
 
-Installation
-************
+安装
+****
 
 Either install from github using ``pip`` or from `PyPI
 <http://pypi.python.org/pypi/Flask-Bootstrap>`_.
 
-A note on versioning
-********************
+版本笔记
+*********
 
 Flask-Bootstrap tries to keep some track of Bootstrap's releases.
 Versioning is usually in the form of ``Bootstrap version`` - ``Flask-Bootstrap
@@ -199,7 +209,7 @@ FAQ
    ensure newer Bootstrap versions are served when you upgrade Flask-Bootstrap.
 
 
-CHANGES
-~~~~~~~
+变更
+~~~~
 
 See :doc:`changelog` for changes including version 2.

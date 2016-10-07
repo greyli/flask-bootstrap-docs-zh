@@ -5,7 +5,6 @@ WTFForms 支持
 Flask-WTF_ 不是Flask-Bootstrap的依赖，但是必须被正确的安装。
 在最近的几个版本中， Flask-WTF_ 的API变化很大，Flask-Bootstrap目前为 Flask-WTF_ 的0.9.2版本开发。
 
-
 最基本的方式是把它们作为手动创建表单的助手。
 
 .. code-block:: jinja

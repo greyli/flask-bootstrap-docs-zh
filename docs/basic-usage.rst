@@ -95,7 +95,7 @@ metas        head        包含所有头部的 ``<meta>`` 标签。
 静态资源文件
 -----------
 
-路径的端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
+路径端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
 对当前的资源文件系统的详细描述在 :doc:`cdn` 。
