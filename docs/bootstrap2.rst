@@ -28,8 +28,7 @@ It's not a bad idea to pin to a specific Flask-Bootstrap version (e.g.
 -----
 
 在版本3之前，Flask-Bootstrap只有一个README文件来作为文档。你可以在下面找到整个文件。
-Before version 3, Flask-Bootstrap only had a README file as documentation. You
-can find the full file below.
+
 
 你也可以在 `github <https://github.com>`_ 上查找之前的版本标签。
 要看主要的版本2的代码或样例程序，在这里 `2.3.2.2 <https://github.com/mbr/flask-bootstrap/tree/2.3.2.2>`_ 。
@@ -42,10 +41,6 @@ Flask-Bootstrap
 
 Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
 扩展，这个扩展主要由一个叫“bootstrap”的蓝本（blueprint）组成。它也可以创建链接从一个CDN上引用Bootstrap。
-Flask-Bootstrap packages `Bootstrap
-<http://getbootstrap.com>`_ into an extension that mostly consists
-of a blueprint named 'bootstrap'. It can also create links to serve Bootstrap
-from a CDN.
 
 
 用法
@@ -72,10 +67,6 @@ for more possiblities.
 
 路径端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
-The url-endpoint ``bootstrap.static`` is available for refering to Bootstrap
-resources, but usually, this isn't needed. A bit better is using the
-``bootstrap_find_resource`` template filter, which will CDN settings into
-account.
 
 宏
 ****
@@ -84,12 +75,8 @@ account.
 
 一些可供使用的宏可以让你的生活更加简单。这些需要被导入（我建议创建你自己的“base.html”模板，
 首先扩展bootstrap的基模板，然后在那里包含这个宏）。
-A few macros are available to make your life easier. These need to be imported
-(I recommend create your own "base.html" template that extends one of the
-bootstrap base templates first and including the the macros there).
 
 一个“base.html”的例子::
-An example "base.html"::
 
   {% extends "bootstrap_responsive.html" %}
   {% import "bootstrap_wtf.html" as wtf %}
@@ -98,9 +85,7 @@ An example "base.html"::
 ~~~~
 
 ``bootstrap/wtf.html`` 模板包含了帮助你快速输出表单的宏。
-最基本的方式是把它们作为手动创建表单的助手。
-The ``bootstrap_wtf`` template contains macros to help you output forms
-quickly. The most basic way is using them as an aid to create a form by hand::
+最基本的方式是把它们作为手动创建表单的助手::
 
   <form class="form form-horizontal" method="post">
     {{ form.hidden_tag() }}
@@ -115,8 +100,7 @@ quickly. The most basic way is using them as an aid to create a form by hand::
   </form>
 
 然而，你经常只是想快速生成一个表单，而且不需要过度的微调::
-However, often you just want to get a form done quickly and have no need for
-intense fine-tuning:
+
 
 ::
 
@@ -126,18 +110,17 @@ intense fine-tuning:
 *********
 
 这里有一些模板使用的配置选项:
-There are a few configuration options used by the templates:
 
 ====================================== ======================================================== ===
 选项                                    默认值
 ====================================== ======================================================== ===
-``BOOTSTRAP_USE_MINIFIED``             ``True``                                                 Whether or not to use the minified versions of the css/js files.
+``BOOTSTRAP_USE_MINIFIED``             ``True``                                                 是否使用压缩过的css/js文件。
 ``BOOTSTRAP_JQUERY_VERSION``           ``'1'``                                                  This version of jQuery is included in the template via Google CDN. Also honors ``BOOTSTRAP_USE_MINIFIED``. Set this to ``None`` to not include jQuery at all. Note that non-minified Bootstrap resources are sometimes missing on bootstrapcdn, so it is best not to use it without turning on ``BOOTSTRAP_USE_MINIFIED``.
 ``BOOTSTRAP_HTML5_SHIM``               ``True``                                                 Include the default IE-fixes that are usually included when using bootstrap.
 ``BOOTSTRAP_GOOGLE_ANALYTICS_ACCOUNT`` ``None``                                                 If set, include `Google Analytics <http://www.google.com/analytics>`_ boilerplate using this account.
 ``BOOTSTRAP_USE_CDN``                  ``False``                                                If ``True``, Bootstrap resources will no be served from the local app instance, but will use a Content Delivery Network instead (configured by ``BOOTSTRAP_CDN_BASEURL``).
 ``BOOTSTRAP_CDN_BASEURL``              A dictionary set up with URLs to ``cdnjs.com``.          The URLs to which Bootstrap and other filenames are appended when using a CDN.
-``BOOTSTRAP_CDN_PREFER_SSL``           ``True``                                                 If the ``BOOTSTRAP_CDN_BASEURL`` starts with ``//``, prepend ``'https:'`` to it.
+``BOOTSTRAP_CDN_PREFER_SSL``           ``True``                                                 如果 ``BOOTSTRAP_CDN_BASEURL`` 以 ``//`` 开头，会在之前添加 ``'https:'`` 。
 ``BOOTSTRAP_CUSTOM_CSS``               ``False``                                                If ``True``, no Bootstrap CSS files will be loaded. Use this if you compile a custom css file that already includes bootstrap.
 ``BOOTSTRAP_QUERYSTRING_REVVING``      ``True``                                                 If ``True``, will apppend a querystring with the current version to all static resources served locally. This ensures that upon upgrading Flask-Bootstrap, these resources are refreshed.
 ====================================== ======================================================== ===
@@ -147,19 +130,17 @@ There are a few configuration options used by the templates:
 安装
 ****
 
-Either install from github using ``pip`` or from `PyPI
-<http://pypi.python.org/pypi/Flask-Bootstrap>`_.
+你可以使用 ``pip`` 从github或是从 `PyPI
+<http://pypi.python.org/pypi/Flask-Bootstrap>`_ 安装。
 
 版本笔记
 *********
 
-Flask-Bootstrap tries to keep some track of Bootstrap's releases.
-Versioning is usually in the form of ``Bootstrap version`` - ``Flask-Bootstrap
-iteration``. For example, a version of ``2.0.3-2`` bundles Bootstrap version
-``2.0.3`` and is the second release of Flask-Bootstrap containing that version.
+Flask-Bootstrap 尝试跟随Bootstrap更新的脚步。版本变化通常
+在 ``Bootstrap version`` 和 ``Flask-Bootstrap iteration`` 里。举例来说，
+版本 ``2.0.3.2`` 集成了Bootstrap ``2.0.3`` 版本，并且是Flask-Bootstrap集成这个版本的第二次更新。
 
-If you need to rely on your templates not changing, simply pin the version in
-your setup.py.
+如果你需要让你的模板不改变，那么在你的setup.py里固定版本就可以了。
 
 FAQ
 ***
@@ -209,7 +190,8 @@ FAQ
    ensure newer Bootstrap versions are served when you upgrade Flask-Bootstrap.
 
 
-变更
-~~~~
+变更记录
+~~~~~~~~~
 
-See :doc:`changelog` for changes including version 2.
+
+参见 :doc:`changelog` ，那里有包括版本2的变更记录。
