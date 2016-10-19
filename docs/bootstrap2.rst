@@ -2,27 +2,18 @@
 ================
 
 目前Bootstrap主要的稳定版本是3，它不向后兼容Bootstrap2。除了版本3，Flask-Bootstrap
-继续支持Bootstrap2的最新版本。（尽管你不应该期待新特性，只是修正了漏洞。）
-The current major stable version of Bootstrap is 3, which is backwards
-incompatible with Bootstrap 2. Besides version 3, Flask-Bootstrap is maintained
-for the latest version of Bootstrap 2 (although you should not expect new
-features, only bug fixes).
+继续支持Bootstrap2的最新版本。（不过你不要期待有新特性，只是修正了漏洞而已。）
 
 安装
 -----
 
 通过安装Flask-Bootstrap，你将总是得到最新版本，即Boostrap3。要安装（或是保持）Flask-Bootstrap 2，
 你必须在你的 ``setup.py`` 或 ``requirements.txt`` 里指定版本，类似这样::
-By installing Flask-Bootstrap, you will always get the latest version, which is
-Bootstrap 3. To install (or keep) Flask-Bootstrap 2, you will have to specify
-the version in your ``setup.py`` or ``requirements.txt`` similiar to this::
 
     # other stuff in setup.py...
     install_requires=['flask-bootstrap<3', 'another_package']
 
 把Flask-Bootstrap固定为一个明确的版本是个好主意（例如 ``'flask-bootstrap==2.3.2.2'`` ，以此来避免生产环境中的意外）。
-It's not a bad idea to pin to a specific Flask-Bootstrap version (e.g.
-``'flask-bootstrap==2.3.2.2'`` to avoid surprises in production).
 
 文档
 -----
@@ -32,9 +23,6 @@ It's not a bad idea to pin to a specific Flask-Bootstrap version (e.g.
 
 你也可以在 `github <https://github.com>`_ 上查找之前的版本标签。
 要看主要的版本2的代码或样例程序，在这里 `2.3.2.2 <https://github.com/mbr/flask-bootstrap/tree/2.3.2.2>`_ 。
-You can also find previous version tags on `github <https://github.com>`_. To
-have a look at the code or sample app for major version 2, take a look at
-`2.3.2.2 <https://github.com/mbr/flask-bootstrap/tree/2.3.2.2>`_.
 
 Flask-Bootstrap
 ^^^^^^^^^^^^^^^
@@ -58,14 +46,8 @@ Here is an example::
 这让一些新的模板可供使用，主要是 ``bootstrap_base.html`` 和 ``bootstrap_responsive.html`` 。
 这些是包含所有bootstrap资源文件和预定义块（你可以在块里放你的内容）的空白页。要修改的核心块是 ``body_content`` ，
 另外查看模板的源码寻找更多可能性。
-This makes some new templates available, mainly ``bootstrap_base.html`` and
-``bootstrap_responsive.html``. These are blank pages that include all bootstrap
-resources, and have predefined blocks where you can put your content. The core
-block to alter is ``body_content``, otherwise see the source of the template
-for more possiblities.
 
-
-路径端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
+url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
 宏
@@ -138,38 +120,37 @@ for more possiblities.
 
 Flask-Bootstrap 尝试跟随Bootstrap更新的脚步。版本变化通常
 在 ``Bootstrap version`` 和 ``Flask-Bootstrap iteration`` 里。举例来说，
-版本 ``2.0.3.2`` 集成了Bootstrap ``2.0.3`` 版本，并且是Flask-Bootstrap集成这个版本的第二次更新。
+版本 ``2.0.3.2`` 集成了Bootstrap ``2.0.3`` 版本，并且是Flask-Bootstrap集成这个 版本的第二次更新。
 
 如果你需要让你的模板不改变，那么在你的setup.py里固定版本就可以了。
 
 FAQ
 ***
 
-1. Why do I have undesired auto-escapes in my template output?
-
-   Make sure your templates end in ``.htm``, ``.html``, ``.xml`` or ``.xhtml``.
-   Flask sets the Jinja2-autoescape mode depending on the template file
-   extension (see `this StackOverflow question
+1. 为什么在我的模板输出里有我不想出现的自动转义？
+   确保你的模板文件后缀为 ``.htm`` ， ``.html`` ， ``.xml`` 或是 ``.xhtml`` 。
+   Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息见： `this StackOverflow question
    <http://stackoverflow.com/questions/13222925/how-do-i-enable-autoescaping-in-templates-with-a-jhtml-extension-in-flask>`_
-   for more information).
+   ）。
 
-   General convention in Flask applications is to name your HTML-templates
-   ``.html`` though.
+   尽管一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。
 
-2. How can I add custom javascript to the template?
+2. 我怎么向模板添加自定义的jacascript？
 
-   Use Jinja2's ``super()`` in conjunction with the ``bootstrap_js_bottom``
-   block. The super-function adds the contents of a block from the parent
-   template, that way you can even decide if you want to include it before or
-   after jQuery/bootstrap. Example::
+   使用Jinjia2的 ``super()`` 连同 ``bootstrap_js_bottom`` 块。这个super函数从父模板
+   添加块的内容，这种方式甚至可以让你决定是否想要在jQuery/bootstrap之前或之后加载。举例来说::
 
      {% block bootstrap_js_bottom %}
        {{super()}}
        <script src="my_app_code.js">
      {% endblock %}
 
-3. How do I serve the static files in deployment?
 
+3. 我如何在部署时服务静态文件？
+How do I serve the static files in deployment?
+
+   Flask-Bootstrap只是简单的添加一个叫 ``bootstrap`` 的蓝本，从这个意义上来说，它并不特别。
+   静态文件被匹配到一个特殊的URL前缀（）
    Flask-Bootstrap is not special in the sense that it simply adds a blueprint
    named ``bootstrap``. The static files map to a specific URL-prefix (per
    default ``static/bootstrap`` and are served from a specific directory
