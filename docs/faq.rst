@@ -2,38 +2,31 @@ FAQ
 ===
 
 
-Why do I have undesired auto-escapes in my template output?
------------------------------------------------------------
+为什么在我的模板输出里有我不想出现的自动转义？
+-------------------------------------------
 
-Make sure your templates end in ``.htm``, ``.html``, ``.xml`` or ``.xhtml``.
-Flask sets the Jinja2-autoescape mode depending on the template file extension
-(see `this StackOverflow question <http://stackoverflow.com/questions/13222925
-/how-do-i-enable-autoescaping-in-templates-with-a-jhtml-extension-in-flask>`_
-for more information).
+确保你的模板文件后缀为 ``.htm`` ， ``.html`` ， ``.xml`` 或是 ``.xhtml`` 。
+Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息见： `this StackOverflow question
+<http://stackoverflow.com/questions/13222925/how-do-i-enable-autoescaping-in-templates-with-a-jhtml-extension-in-flask>`_ ）。
 
-General convention in Flask applications is to name your HTML-templates
-``.html`` though.
+尽管如此，一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。
 
 
-How can I add custom javascript to the template?
-------------------------------------------------
+我怎么向模板添加自定义的jacascript？
+-----------------------------------
 .. highlight:: jinja
 
-Use Jinja2's super_ in conjunction with the ``scripts`` block.
-The super-function adds the contents of a block from the parent template, that
-way you can even decide if you want to include it before or after
-jQuery/bootstrap.
-Example::
+使用Jinjia2的 super_ 连同 ``scripts`` 块。这个super函数从父模板
+添加块的内容，这种方式甚至可以让你决定是否想要在jQuery/bootstrap之前或之后加载。举例来说::
 
-
-  {% block scripts %}
+  {% block bootstrap_js_bottom %}
     {{super()}}
     <script src="my_app_code.js">
   {% endblock %}
 
 
-Why is Bootstrap javascript not loading?
-----------------------------------------
+为什么Bootstrap的javascript不加载？
+----------------------------------
 
 An easy-to-miss quirk are the block names: While there is a block named
 ``body``, it usually is not the one you want to replace, use ``content``

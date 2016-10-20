@@ -15,5 +15,5 @@
 ``BOOTSTRAP_SERVE_LOCAL``              ``False``                                                如果设为 ``True``，每次都将加载本地的Bootstrap资源文件。具体见：:doc:`cdn` 。
 ``BOOTSTRAP_LOCAL_SUBDOMAIN``          ``None``                                                 传递一个 ``subdomain`` 变量给已经生成的 :class:`~flask.Blueprint` 。当需要加载不同子域的本地文件时会很有用。
 ``BOOTSTRAP_CDN_FORCE_SSL``            ``True``                                                 如果一个CDN资源地址以 ``//`` 开头，会在地址前添加 ``'https:'`` 。
-``BOOTSTRAP_QUERYSTRING_REVVING``      ``True``                                                 如果设为 ``True`` ，会添加一个包含当前所有本地静态文件版本的查询字符串。这会确保一旦升级Flask-Bootstrap，这些文件就会被刷新。
+``BOOTSTRAP_QUERYSTRING_REVVING``      ``True``                                                 如果设为 ``True`` ，会添加一个包含当前所有本地静态文件版本的查询字符串。这会确保一旦升级Flask-Bootstrap，这些文件就会被更新。
 ====================================== ======================================================== ===

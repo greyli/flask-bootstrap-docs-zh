@@ -97,7 +97,7 @@ url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资�
 选项                                    默认值
 ====================================== ======================================================== ===
 ``BOOTSTRAP_USE_MINIFIED``             ``True``                                                 是否使用压缩过的css/js文件。
-``BOOTSTRAP_JQUERY_VERSION``           ``'1'``                                                  This version of jQuery is included in the template via Google CDN. Also honors ``BOOTSTRAP_USE_MINIFIED``. Set this to ``None`` to not include jQuery at all. Note that non-minified Bootstrap resources are sometimes missing on bootstrapcdn, so it is best not to use it without turning on ``BOOTSTRAP_USE_MINIFIED``.
+``BOOTSTRAP_JQUERY_VERSION``           ``'1'``                                                  模板里这个版本的jQuery通过Google的CDN被包含。This version of jQuery is included in the template via Google CDN. Also honors ``BOOTSTRAP_USE_MINIFIED``. 把这个值设为None会不包含jQuery。要注意的是未压缩的Bootstrap资源在Boostrap的CDN上有时会丢失，所以在没有打开 ``BOOTSTRAP_USE_MINIFIED`` 时最好不要用它。Set this to ``None`` to not include jQuery at all. Note that non-minified Bootstrap resources are sometimes missing on bootstrapcdn, so it is best not to use it without turning on ``BOOTSTRAP_USE_MINIFIED``.
 ``BOOTSTRAP_HTML5_SHIM``               ``True``                                                 Include the default IE-fixes that are usually included when using bootstrap.
 ``BOOTSTRAP_GOOGLE_ANALYTICS_ACCOUNT`` ``None``                                                 If set, include `Google Analytics <http://www.google.com/analytics>`_ boilerplate using this account.
 ``BOOTSTRAP_USE_CDN``                  ``False``                                                If ``True``, Bootstrap resources will no be served from the local app instance, but will use a Content Delivery Network instead (configured by ``BOOTSTRAP_CDN_BASEURL``).
@@ -133,7 +133,7 @@ FAQ
    <http://stackoverflow.com/questions/13222925/how-do-i-enable-autoescaping-in-templates-with-a-jhtml-extension-in-flask>`_
    ）。
 
-   尽管一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。
+   尽管如此，一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。
 
 2. 我怎么向模板添加自定义的jacascript？
 
@@ -146,11 +146,13 @@ FAQ
      {% endblock %}
 
 
-3. 我如何在部署时服务静态文件？
+3. 我如何在部署时提供静态文件？
 How do I serve the static files in deployment?
 
    Flask-Bootstrap只是简单的添加一个叫 ``bootstrap`` 的蓝本，从这个意义上来说，它并不特别。
-   静态文件被匹配到一个特殊的URL前缀（）
+   静态文件被匹配到一个特殊的URL前缀（默认为 ``static/bootstrap`` ）而且通过一个特定的文件夹提供，
+   这个文件夹可以在你的virtualenv安装包里找到（比如 ``lib/python2.7/site-packages/flask_bootstrap/static`` ），
+   所以一个典型的安装将会是设定你的web服务器服务上面提到的文件夹的地址。
    Flask-Bootstrap is not special in the sense that it simply adds a blueprint
    named ``bootstrap``. The static files map to a specific URL-prefix (per
    default ``static/bootstrap`` and are served from a specific directory
@@ -159,11 +161,19 @@ How do I serve the static files in deployment?
    setup would be setting up your webserver to serve this address from the
    mentioned directory.
 
+   一个更优雅的解决方案是在WSGI服务器前放置一个缓存来处理 ``Cache-Control`` 报头。
+   默认情况下，Flask会在提供静态文件时附带一个12小时的过期时间
+   （你可以使用 ``SEND_FILE_MAX_AGE_DEFAULT`` 改变这个值），这应该足够了。
    A more elegant approach is having a cache in front of the WSGI server that
    respects ``Cache-Control`` headers. Per default, Flask will serve static
    files with an expiration time of 12 hours (you can change this value using
    the ``SEND_FILE_MAX_AGE_DEFAULT``), which should be sufficient.
 
+   这个方案可以使用 `nginx <http://nginx.org>`_
+   （或者，也许你更喜欢 `Varnish <http://varnish-cache.org>`_ ）或者他们的基于
+   相同工具的云服务应该也足够了。Flask-Bootstrap2.3.2.2通过提供查询字符串加速支持这些，
+   这确保当你更新Flask-Bootstrap时，更新版本的Bootstrap会被获取。
+   （查看 ``BOOTSTRAP_QUERYSTRING_REVVING`` ）
    For this approach `nginx <http://nginx.org>`_ (or, if you prefer,
    `Varnish <http://varnish-cache.org>`_) or their cloud-service based
    equivalents should suffice. Flask-Bootstrap 2.3.2.2 supports this by
