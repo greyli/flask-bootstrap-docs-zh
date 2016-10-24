@@ -6,7 +6,7 @@ FAQ
 -------------------------------------------
 
 确保你的模板文件后缀为 ``.htm`` ， ``.html`` ， ``.xml`` 或是 ``.xhtml`` 。
-Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息见： `this StackOverflow question
+Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息见 `这个StackOverflow问题
 <http://stackoverflow.com/questions/13222925/how-do-i-enable-autoescaping-in-templates-with-a-jhtml-extension-in-flask>`_ ）。
 
 尽管如此，一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。

@@ -129,7 +129,7 @@ FAQ
 
 1. 为什么在我的模板输出里有我不想出现的自动转义？
    确保你的模板文件后缀为 ``.htm`` ， ``.html`` ， ``.xml`` 或是 ``.xhtml`` 。
-   Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息见： `this StackOverflow question
+   Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息见 `这个StackOverflow问题
    <http://stackoverflow.com/questions/13222925/how-do-i-enable-autoescaping-in-templates-with-a-jhtml-extension-in-flask>`_
    ）。
 
