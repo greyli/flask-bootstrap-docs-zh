@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 project = u'Flask-Bootstrap'
-copyright = u'2013, Marc Brinkmann'
-zh_translate = u'2016, Li Hui'
+copyright = u'2013, Marc Brinkmann / 翻译: 李辉(withlihui@gmail.com) '
 version = '3.3.7.1'
 release = '3.3.7.1.dev1'
 

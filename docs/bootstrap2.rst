@@ -97,14 +97,14 @@ url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资�
 选项                                    默认值
 ====================================== ======================================================== ===
 ``BOOTSTRAP_USE_MINIFIED``             ``True``                                                 是否使用压缩过的css/js文件。
-``BOOTSTRAP_JQUERY_VERSION``           ``'1'``                                                  模板里这个版本的jQuery通过Google的CDN被包含。This version of jQuery is included in the template via Google CDN. Also honors ``BOOTSTRAP_USE_MINIFIED``. 把这个值设为None会不包含jQuery。要注意的是未压缩的Bootstrap资源在Boostrap的CDN上有时会丢失，所以在没有打开 ``BOOTSTRAP_USE_MINIFIED`` 时最好不要用它。Set this to ``None`` to not include jQuery at all. Note that non-minified Bootstrap resources are sometimes missing on bootstrapcdn, so it is best not to use it without turning on ``BOOTSTRAP_USE_MINIFIED``.
-``BOOTSTRAP_HTML5_SHIM``               ``True``                                                 Include the default IE-fixes that are usually included when using bootstrap.
-``BOOTSTRAP_GOOGLE_ANALYTICS_ACCOUNT`` ``None``                                                 If set, include `Google Analytics <http://www.google.com/analytics>`_ boilerplate using this account.
-``BOOTSTRAP_USE_CDN``                  ``False``                                                If ``True``, Bootstrap resources will no be served from the local app instance, but will use a Content Delivery Network instead (configured by ``BOOTSTRAP_CDN_BASEURL``).
-``BOOTSTRAP_CDN_BASEURL``              A dictionary set up with URLs to ``cdnjs.com``.          The URLs to which Bootstrap and other filenames are appended when using a CDN.
+``BOOTSTRAP_JQUERY_VERSION``           ``'1'``                                                  模板里这个版本的jQuery通过Google的CDN加载。另外提一下 ``BOOTSTRAP_USE_MINIFIED`` ，把这个值设为None会不加载jQuery。要注意的是未压缩的Bootstrap资源在Boostrap的CDN上有时会丢失，所以在没有打开 ``BOOTSTRAP_USE_MINIFIED`` 时最好不要用它。
+``BOOTSTRAP_HTML5_SHIM``               ``True``                                                 加载默认的IE兼容性修复文件，这些文件通常在使用bootstrap时被加载。
+``BOOTSTRAP_GOOGLE_ANALYTICS_ACCOUNT`` ``None``                                                 如果设置，使用这个账号加载 `Google Analytics <http://www.google.com/analytics>`_ 模板文件（boilerplate）。
+``BOOTSTRAP_USE_CDN``                  ``False``                                                如果设为 ``True`` ，Bootstrap资源将不会从本地应用实例加载，而是使用CDN（使用 ``BOOTSTRAP_CDN_BASEURL`` 配置）。
+``BOOTSTRAP_CDN_BASEURL``              用匹配到 ``cdnjs.com`` 的CDN地址建立的字典。                当使用CDN时要添加的Bootstrap和其他文件名的CDN地址。
 ``BOOTSTRAP_CDN_PREFER_SSL``           ``True``                                                 如果 ``BOOTSTRAP_CDN_BASEURL`` 以 ``//`` 开头，会在之前添加 ``'https:'`` 。
-``BOOTSTRAP_CUSTOM_CSS``               ``False``                                                If ``True``, no Bootstrap CSS files will be loaded. Use this if you compile a custom css file that already includes bootstrap.
-``BOOTSTRAP_QUERYSTRING_REVVING``      ``True``                                                 If ``True``, will apppend a querystring with the current version to all static resources served locally. This ensures that upon upgrading Flask-Bootstrap, these resources are refreshed.
+``BOOTSTRAP_CUSTOM_CSS``               ``False``                                                如果设为 ``True`` ，将不会加载Bootstrap的CSS文件。如果你编写了一个自定义的css文件，其中已经包含了bootstrap，可以使用这个选项。
+``BOOTSTRAP_QUERYSTRING_REVVING``      ``True``                                                 如果设为 ``True`` ，会添加一个包含当前所有本地静态文件版本的查询字符串。这会确保一旦升级Flask-Bootstrap，这些文件就会被更新。
 ====================================== ======================================================== ===
 
 .. _FontAwesome: http://fortawesome.github.com/Font-Awesome/
@@ -120,7 +120,7 @@ url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资�
 
 Flask-Bootstrap 尝试跟随Bootstrap更新的脚步。版本变化通常
 在 ``Bootstrap version`` 和 ``Flask-Bootstrap iteration`` 里。举例来说，
-版本 ``2.0.3.2`` 集成了Bootstrap ``2.0.3`` 版本，并且是Flask-Bootstrap集成这个 版本的第二次更新。
+版本 ``2.0.3.2`` 集成了Bootstrap ``2.0.3`` 版本，并且是Flask-Bootstrap集成这个版本的第二次更新。
 
 如果你需要让你的模板不改变，那么在你的setup.py里固定版本就可以了。
 
@@ -146,39 +146,22 @@ FAQ
      {% endblock %}
 
 
-3. 我如何在部署时提供静态文件？
-How do I serve the static files in deployment?
+3. 我在部署时如何加载静态文件？
 
-   Flask-Bootstrap只是简单的添加一个叫 ``bootstrap`` 的蓝本，从这个意义上来说，它并不特别。
+   Flask-Bootstrap只是简单的添加一个叫 ``bootstrap`` 的蓝本，在这个意义上来说，它并不特别。
    静态文件被匹配到一个特殊的URL前缀（默认为 ``static/bootstrap`` ）而且通过一个特定的文件夹提供，
    这个文件夹可以在你的virtualenv安装包里找到（比如 ``lib/python2.7/site-packages/flask_bootstrap/static`` ），
    所以一个典型的安装将会是设定你的web服务器服务上面提到的文件夹的地址。
-   Flask-Bootstrap is not special in the sense that it simply adds a blueprint
-   named ``bootstrap``. The static files map to a specific URL-prefix (per
-   default ``static/bootstrap`` and are served from a specific directory
-   found in your virtualenv installation (e.g.
-   ``lib/python2.7/site-packages/flask_bootstrap/static``), so a traditional
-   setup would be setting up your webserver to serve this address from the
-   mentioned directory.
 
    一个更优雅的解决方案是在WSGI服务器前放置一个缓存来处理 ``Cache-Control`` 报头。
-   默认情况下，Flask会在提供静态文件时附带一个12小时的过期时间
+   默认情况下，Flask会在加载静态文件时附带一个12小时的过期时间
    （你可以使用 ``SEND_FILE_MAX_AGE_DEFAULT`` 改变这个值），这应该足够了。
-   A more elegant approach is having a cache in front of the WSGI server that
-   respects ``Cache-Control`` headers. Per default, Flask will serve static
-   files with an expiration time of 12 hours (you can change this value using
-   the ``SEND_FILE_MAX_AGE_DEFAULT``), which should be sufficient.
 
    这个方案可以使用 `nginx <http://nginx.org>`_
    （或者，也许你更喜欢 `Varnish <http://varnish-cache.org>`_ ）或者他们的基于
    相同工具的云服务应该也足够了。Flask-Bootstrap2.3.2.2通过提供查询字符串加速支持这些，
-   这确保当你更新Flask-Bootstrap时，更新版本的Bootstrap会被获取。
+   这确保当你更新Flask-Bootstrap时，更新版本的Bootstrap会被加载。
    （查看 ``BOOTSTRAP_QUERYSTRING_REVVING`` ）
-   For this approach `nginx <http://nginx.org>`_ (or, if you prefer,
-   `Varnish <http://varnish-cache.org>`_) or their cloud-service based
-   equivalents should suffice. Flask-Bootstrap 2.3.2.2 supports this by
-   offering querystring revving (see ``BOOTSTRAP_QUERYSTRING_REVVING``) to
-   ensure newer Bootstrap versions are served when you upgrade Flask-Bootstrap.
 
 
 变更记录

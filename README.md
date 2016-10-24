@@ -12,6 +12,6 @@
 * Flask-SQLAlchemy support (100%)
 * Flask-Nav support (100%)
 * CDN support (100%)
-* FAQ
-* Using Bootstrap 2
+* FAQ(100%)
+* Using Bootstrap 2(100%)
 * Flask-Bootstrap Changelog (100%)
