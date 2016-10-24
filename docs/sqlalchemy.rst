@@ -3,7 +3,6 @@ Flask-SQLAlchemy 支持
 
 `Flask-SQLAlchemy <https://pythonhosted.org/Flask-SQLAlchemy/>`_ 通过
 它的 :meth:`~flask_sqlalchemy.BaseQuery.paginate` 对象支持分页。这些可以通过 ``render_pagination`` 宏自动渲染。
-supports
 
 .. code-block:: jinja
 

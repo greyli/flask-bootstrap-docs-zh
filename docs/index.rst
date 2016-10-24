@@ -18,6 +18,7 @@ Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
    faq
    bootstrap2
    changelog
+   translate
 
 
 安装

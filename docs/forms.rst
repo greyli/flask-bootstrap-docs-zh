@@ -1,4 +1,4 @@
-WTFForms 支持
+WTForms 支持
 =============
 
 ``bootstrap/wtf.html`` 模板包含了帮助你快速输出表单的宏。
