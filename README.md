@@ -3,7 +3,7 @@
 使用[sphinx](http://www.sphinx-doc.org/en/stable/)，部署在[Read The Docs](https://docs.readthedocs.io/en/latest/index.html)。  
 文档地址：[http://flask-bootstrap-zh.readthedocs.io/zh/latest/](http://flask-bootstrap-zh.readthedocs.io/zh/latest/)
 
-## 进展
+## 进展（100%）
 * index (100%)
 * Basic usage (100%)
 * Configuration (100%)

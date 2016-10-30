@@ -7,8 +7,8 @@
 
 邮箱：withlihui@gmail.com
 
-博客： `http://withlihui.com <http://withlihui.com>`_
+博客： `http://greyli.com <http://withlihui.com>`_
 
-Github： `http://github.com/lihuii <http://github.com/lihuii>`_
+Github： `https://github.com/greyli <https://github.com/greyli>`_
 
-项目Github地址： `https://github.com/lihuii/flask-bootstrap-docs-zh <https://github.com/lihuii/flask-bootstrap-docs-zh>`_
+项目Github地址： `https://github.com/greyli/flask-bootstrap-docs-zh <https://github.com/greyli/flask-bootstrap-docs-zh>`_
