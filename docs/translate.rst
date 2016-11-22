@@ -7,8 +7,10 @@
 
 邮箱：withlihui@gmail.com
 
-博客： `http://greyli.com <http://withlihui.com>`_
+博客： `greyli.com <http://withlihui.com>`_
 
-Github： `https://github.com/greyli <https://github.com/greyli>`_
+知乎专栏 Hello, Flask!： `zhuanlan.zhihu.com/flask <https://zhuanlan.zhihu.com/flask>`_
 
-项目Github地址： `https://github.com/greyli/flask-bootstrap-docs-zh <https://github.com/greyli/flask-bootstrap-docs-zh>`_
+Github： `github.com/greyli <https://github.com/greyli>`_
+
+项目Github地址： `github.com/greyli/flask-bootstrap-docs-zh <https://github.com/greyli/flask-bootstrap-docs-zh>`_
