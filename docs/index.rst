@@ -37,7 +37,7 @@ Flask-Bootstrap 可以使用 ``pip`` 从 `PyPI
 起步
 ----
 
-直接去读 :doc:`基本用法` 吧。同时还有一份 :doc:`faq` 清单可供参阅。
+直接去读 :doc:`基本用法 <basic-usage>` 吧。同时还有一份 :doc:`faq` 清单可供参阅。
 
 在写这份文档时，最新的Bootstrap版本已经到了Bootstrap 3（现在已经是4了！）。
 一个Flask-Bootstrap分支仍然支持Bootstrap2，具体细节在这里
