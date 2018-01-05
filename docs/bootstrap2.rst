@@ -21,7 +21,7 @@
 在版本3之前，Flask-Bootstrap只有一个README文件来作为文档。你可以在下面找到整个文件。
 
 
-你也可以在 `github <https://github.com>`_ 上查找之前的版本标签。
+你也可以在 `GitHub <https://github.com>`_ 上查找之前的版本标签。
 要看主要的版本2的代码或样例程序，在这里 `2.3.2.2 <https://github.com/mbr/flask-bootstrap/tree/2.3.2.2>`_ 。
 
 Flask-Bootstrap
@@ -47,7 +47,7 @@ Here is an example::
 这些是包含所有bootstrap资源文件和预定义块（你可以在块里放你的内容）的空白页。要修改的核心块是 ``body_content`` ，
 另外查看模板的源码寻找更多可能性。
 
-url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
+URL端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
 宏
@@ -81,10 +81,7 @@ url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资�
     </div>
   </form>
 
-然而，你经常只是想快速生成一个表单，而且不需要过度的微调::
-
-
-::
+然而，你经常只是想快速生成一个表单，而且不需要过度的微调，这时可以直接使用``quick_form``宏::
 
   {{ wtf.quick_form(form) }}
 
@@ -112,7 +109,7 @@ url端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资�
 安装
 ****
 
-你可以使用 ``pip`` 从github或是从 `PyPI
+你可以使用 ``pip`` 从GitHub或是从 `PyPI
 <http://pypi.python.org/pypi/Flask-Bootstrap>`_ 安装。
 
 版本笔记
@@ -135,7 +132,7 @@ FAQ
 
    尽管如此，一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。
 
-2. 我怎么向模板添加自定义的jacascript？
+2. 我怎么向模板添加自定义的JavaScript？
 
    使用Jinjia2的 ``super()`` 连同 ``bootstrap_js_bottom`` 块。这个super函数从父模板
    添加块的内容，这种方式甚至可以让你决定是否想要在jQuery/bootstrap之前或之后加载。举例来说::
