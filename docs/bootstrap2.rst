@@ -81,7 +81,7 @@ URL端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资�
     </div>
   </form>
 
-然而，你经常只是想快速生成一个表单，而且不需要过度的微调，这时可以直接使用``quick_form``宏::
+然而，你经常只是想快速生成一个表单，而且不需要过度的微调，这时可以直接使用 ``quick_form`` 宏::
 
   {{ wtf.quick_form(form) }}
 
