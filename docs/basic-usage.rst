@@ -14,7 +14,7 @@
 
     # do something with app...
 
-加载后，新的模板可以从你的模板库里获取。
+加载后，新的模板可以从bootstrap蓝本自带的模板文件夹里获取。
 
 示例程序
 ----
@@ -43,7 +43,7 @@
     {% endblock %}
 
 所有你要在子模板里做的事情都是基于块（block）的。一些块（像 ``title`` ， ``navbar`` 或 ``content`` ）
-是“convenience blocks”。严格来说，它们不是必须的，但是被增加用来优化文档结构（？）。
+是“convenience blocks（便利块）”。严格来说，它们不是必须的，但是被增加用来优化文档结构（方便使用）。
 
 一个非常有用的特性是 `Jinja2的super()
 <http://jinja.pocoo.org/docs/templates/#super-blocks>`_ 函数。它可以让你修改块，而不是替换它们。
@@ -61,7 +61,7 @@ html         doc         包含 ``<html>`` 标签的所有内容。
 html_attribs doc         HTML标签的属性。
 head         doc         包含 ``<head>`` 标签的所有内容。
 body         doc         包含 ``<body>`` 标签的所有内容。
-body_attribs body        主体标签的属性。
+body_attribs body        ``<body>`` 标签的属性。
 **title**    head        包含 ``<title>`` 标签的所有内容。
 **styles**   head        包含所有头部的CSS文件 ``<link>`` 标签。
 metas        head        包含所有头部的 ``<meta>`` 标签。
@@ -88,14 +88,14 @@ metas        head        包含所有头部的 ``<meta>`` 标签。
     {{super()}}
     {% endblock %}
 
-* 增加 ``lang="zh"`` 属性到 ``<html>``-标签::
+* 增加 ``lang="zh"`` 属性到 ``<html>`` 标签::
 
     {% block html_attribs %} lang="zh"{% endblock %}
 
 静态资源文件
 -----------
 
-路径端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
+URL端点（url-endpoint） ``bootstrap.static`` 可以让你引用Bootstrap资源文件，但通常不需要这样。
 更好的做法是使用 ``bootstrap_find_resource`` 模板过滤器，它会负责设置CDN。
 
 对当前的资源文件系统的详细描述在 :doc:`cdn` 。
