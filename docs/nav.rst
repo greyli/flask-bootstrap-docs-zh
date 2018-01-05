@@ -35,7 +35,7 @@ Flask-Nav_ 扩展可以让你很容易的创建导航构件，而且Flask-Bootst
 
 你可以看看示例程序，它有关于导航的更加详细的例子。
 
-The BootstrapRenderer
+Bootstrap渲染器
 ---------------------
 
 这个用来渲染Bootstrap式HTML的渲染器（通过 ``flask_bootstrap.nav.BootstrapRenderer`` 提供）有一些明确的特性。

@@ -3,12 +3,12 @@
 
 .. highlight:: jinja
 
-Flask-Bootstrap和macros（宏）一起让你的生活更简单。它们需要像下面的例子里这样导入::
+Flask-Bootstrap和宏一起让你的生活更简单。它们需要像下面的例子里这样导入::
 
   {% extends "bootstrap/base.html" %}
   {% import "bootstrap/wtf.html" as wtf %}
 
-这会以前缀 ``wtf`` 导入宏 ``wtf.html`` （这些在 :doc:`forms` 有一些讨论）。
+这会导入包含宏的模板 ``wtf.html`` 并简记为 ``wtf`` （这些在 :doc:`forms` 有一些讨论）。
 
 除了这个页面上的较小的宏，对其他库也广泛支持。具体参见 :doc:`forms` 和 :doc:`sqlalchemy` 。
 
@@ -84,7 +84,7 @@ Utilities
    :param container: 如果设为True，会输出一个完整的     。
                      ``<div class="container">`` 元素，否则只是每条消息被包裹进一个 ``<div>`` 里。
    :param transform: 一个匹配消息类别的字典。查询时对大小写敏感。
-                     默认匹配所有Python loglevel级别的 *names*
+                     默认匹配所有Python loglevel级别的 *名称*
                      到Bootdtrap CSS类。
    :param default_category: 如果一个类别在transform里没有匹配，那么它会被直接传入，不作改变。
                             而如果设置了 ``default_category`` ，那么将会被替换为这个值。
@@ -102,7 +102,7 @@ Utilities
     flash('Operation failed', 'danger')
 
 3.3.5.7之前的Flask-Bootstrap的版本不对 ``flashed_messages`` 的内容进行转义，所以没法使用HTML。
-这个规则已经改变了，现在推荐使用 ``Markup`` 包裹器，可以让消息里的HTML生效：
+这个规则已经改变了，现在推荐使用 ``Markup`` 包装器，可以让消息里的HTML生效：
 
 .. code-block:: python
 
@@ -123,7 +123,7 @@ Utilities
 
    在一个 ``<span>`` 元素里渲染Glyphicon。
 
-   :param messages: 图片的短名字，比如 ``remove`` 。
+   :param messages: 图标的短名字，比如 ``remove`` 。
    :param extra_classes: 添加到类属性的附加类的列表
    :param kwargs: 附加的HTML属性
 
