@@ -17,7 +17,7 @@ Flask-WTF_ 不是Flask-Bootstrap的依赖，但是必须被正确的安装。
     {{ wtf.form_field(form.field2) }}
   </form>
 
-然而，你经常只是想快速生成一个表单，而且不需要过度的微调::
+然而，你经常只是想快速生成一个表单，而且不需要过度的微调，可以直接使用 ``quick_form`` 宏::
 
   {{ wtf.quick_form(form) }}
 
@@ -39,7 +39,7 @@ Flask-WTF_ 不是Flask-Bootstrap的依赖，但是必须被正确的安装。
 
    为一个完整的 Flask-WTF_ 表单输出Bootstrap-markup。
 
-   :param form: 要输出的表单。
+   :param form: 要输出的表单类实例。
    :param method: ``<form>`` 的method属性。
    :param extra_classes: 添加到 ``<form>`` 的类。
    :param role: ``<form>`` 的role属性.
@@ -50,17 +50,17 @@ Flask-WTF_ 不是Flask-Bootstrap的依赖，但是必须被正确的安装。
    :param enctype: ``<form>`` 的enctype属性。如果设为 ``None``
                    而且一个 :class:`~wtforms.fields.FileField` 出现在表单里，
                    这个值会被自动设置为 ``multipart/form-data`` 。
-   :param button_map: 一个字典，匹配按钮字段名称到  ``primary`` ， ``danger`` 或是 ``success`` 。
-                      在 ``button_map`` 里没有找到的按钮会使用 ``default`` 类型。
+   :param button_map: 一个匹配按钮样式的字典，匹配按钮字段名称到  ``primary`` ， ``danger`` 或是 ``success`` 。
+                      在 ``button_map`` 里没有找到的按钮会使用 ``default`` 类型（即 ``btn btn-default``）。
    :param id: ``<form>`` 的id属性。
 
 .. py:function:: form_errors(form, hiddens=True)
 
-   渲染包含表单错误消息的段落。这通常只用来输出隐藏字段表单的错误，因为其他的被附加到表单字段上了。
+   渲染包含表单错误消息的字段。这通常只用来输出隐藏字段表单的错误，因为其他的被附加到表单字段上了。
 
    :param form: 应该被渲染错误信息的表单。
    :param hiddens: If 如果设为 ``True`` ，也渲染隐藏字段的错误。
-                   如果设为 ``'only'`` ， *only* 渲染这些。
+                   如果设为 ``'only'`` ， *只* 渲染这些。
 
 
 .. py:function:: form_field(field,\
