@@ -12,11 +12,11 @@ Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息
 尽管如此，一般的约定是在你的Flask应用里使用 ``.html`` 后缀来命名你的HTML模板。
 
 
-我怎么向模板添加自定义的jacascript？
+我怎么向模板添加自定义的JavaScript？
 -----------------------------------
 .. highlight:: jinja
 
-使用Jinjia2的 super_ 连同 ``scripts`` 块。这个super函数从父模板
+使用Jinja2的 super_ 连同 ``scripts`` 块。这个super函数从父模板
 添加块的内容，这种方式甚至可以让你决定是否想要在jQuery/bootstrap之前或之后加载。举例来说::
 
   {% block bootstrap_js_bottom %}
@@ -25,11 +25,11 @@ Flask依据模板文件扩展名来设置Jinja2自动转义模式（更多信息
   {% endblock %}
 
 
-为什么Bootstrap的javascript不加载？
+为什么Bootstrap的JavaScript不加载？
 ----------------------------------
 
 一个容易忽视的小错误是块名：尽管有一个块叫 ``body`` ，但它通常不是你想替换的那个，
-你应该使用 ``content`` 。 一般地，javascript默认在 ``<body>`` 标签的 `最后
+你应该使用 ``content`` 。 一般地，JavaScript默认在 ``<body>`` 标签的 `最后
 <https://stackoverflow.com/questions/436411/where-is-the-best-place-to-put-
 script-tags-in-html-markup>`_ 加载 ）。
 
@@ -178,7 +178,7 @@ share.aspx?qprid=2&qpcustomd=0>`_ ）仍然含有不被jQuery2支持的版本。
     from flask_bootstrap import StaticCDN
     app.extensions['bootstrap']['cdns']['jquery'] = StaticCDN()
 
-注意在这个情况下你需要下载一个合适的 ``jquery.js`` 和/或 ``jquery.min.js`` ，然后把它放到你的应用的 ``static`` 文件夹。
+注意在这个情况下你需要下载一个合适的 ``jquery.js`` 和/或 ``jquery.min.js`` ，然后把它放到你的程序的 ``static`` 文件夹。
 
 上面的所有配置也会导致jQuery的 ``BOOTSTRAP_SERVE_LOCAL`` 选项被忽略。
 如果你需要一个更加复杂的配置来支持这个选项，看一下 ``init_app`` 的源码和 :doc:`cdn` 的文档。
