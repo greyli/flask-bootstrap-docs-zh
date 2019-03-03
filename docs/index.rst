@@ -2,7 +2,7 @@
 Flask-Bootstrap
 ===============
 
-.. tip:: 这个项目目前已经很久没有更新，而且不支持Bootstrap 4，你可以尝试使用一个更轻量的的替代品：`Bootstrap-Flask <https://github.com/greyli/bootstrap-flask>`_。
+.. tip:: 译者注：这个项目目前已经很久没有更新，而且不支持Bootstrap 4，你可以尝试使用一个更轻量的的替代品：`Bootstrap-Flask <https://github.com/greyli/bootstrap-flask>`_。
 
 Flask-Bootstrap 把 `Bootstrap <http://getbootstrap.com>`_ 打包进一个
 扩展，这个扩展主要由一个叫“bootstrap”的蓝本（blueprint）组成。它也可以创建链接从一个CDN上引用Bootstrap资源。
