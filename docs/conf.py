@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 project = u'Flask-Bootstrap'
-copyright = u'2013, Marc Brinkmann / 翻译: <a href="http://withlihui.com" target="_blank">李辉</a>'
+copyright = u'2013, Marc Brinkmann / 翻译: <a href="http://greyli.com" target="_blank">李辉</a>'
 version = '3.3.7.1'
 release = '3.3.7.1.dev1'
 
@@ -13,11 +13,10 @@ pygments_style = 'monokai'
 
 html_theme = 'alabaster'
 html_theme_options = {
-    'github_user': 'mbr',
-    'github_repo': 'flask-bootstrap',
+    'github_user': 'greyli',
+    'github_repo': 'flask-bootstrap-docs-zh',
     'description': 'All Bootstrap, no boilerplate.',
     'github_banner': True,
-    'gratipay_user': 'mbr',
     'github_button': False,
     'show_powered_by': False,
 
